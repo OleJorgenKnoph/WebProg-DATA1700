@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kodegjennomgang - Javascript 1</title>
+    <script type="application/javascript">
+        function innKlikk(innData) {
+            let utData = "Du har skrevet innn følgende data: " + innData;
+            alert(utData);
+        }
+
+        function klikkKnapp() {
+            alert("Knappen er trykket");
+        }
+
+        function klikkDiv() {
+            alert("Div er klikket");
+            console.log("Etter klikkDiv");
+        }
+    </script>
+</head>
+
+    <input type="button" value="Trykk meg" onclick="klikkKnapp()">
+<br>
+
+<input type="text" onchange="innKlikk(this.value);" /<br />
+
+<div onclick="klikkDiv()"> Trykk meg</div /<br />
+
+<div onmousemove="style.color='white'; style.backgroundColor='blue'" onmouseleave="style.color='black'; style.backgroundColor='white'">Føl meg</div>
+
+
+</body>
+</html>
