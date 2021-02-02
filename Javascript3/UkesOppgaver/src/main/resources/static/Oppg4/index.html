@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script type="application/javascript">
+        const personArray = [];
+
+        let ut = "<table><tr>" +
+            "<th>Navn</th><th>Adresse</th><th>Telefonnr</th>" +
+            "</tr>";
+
+
+        function registrer() {
+            let navn = document.getElementById("navn").value;
+            let adr = document.getElementById("adresse").value;
+            let tlf = document.getElementById("tlf").value;
+
+            let person = {
+                navn: navn,
+                adr: adr,
+                tlf: tlf
+            }
+            personArray.push(person);
+        }
+
+        function visReg() {
+            let tekstfelt = document.getElementById("personReg");
+
+            tekstfelt.innerHTML = ut;
+            let personReg = "";
+
+            for (let i = 0; i < personArray.length; i++){
+                    personReg += personArray[i].navn + "   " + personArray[i].adr + "   " + personArray[i].tlf + "<br>";
+                }
+            tekstfelt.innerHTML += personReg;
+            }
+    </script>
+</head>
+<body>
+
+<label for="navn">Navn:</label>
+    <input type="text" id="navn"><br/>
+<label for="adresse">Adresse:</label>
+    <input type="text" id="adresse"><br>
+<label for="tlf">TlfNr:</label>
+    <input type="number" id="tlf"><br>
+
+<br> <button type="submit" onclick="registrer()">Registrer</button>
+
+<br><br>
+<button onclick="visReg()">Vis personreg</button>
+<div id="personReg"></div>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+<script type="application/javascript">
+    function beregnpluss() {
+        let tall1 = Number(document.getElementById("tall1").value);
+        let tall2 = Number(document.getElementById("tall2").value);
+        let res = document.getElementById("resultat");
+        if (isNaN(tall1) || isNaN(tall2)){res.innerHTML = "Skriv inn gyldig tall"}
+        res.innerHTML = tall1 + tall2;
+    }
+    function beregnminus() {
+        let tall1 = Number(document.getElementById("tall1").value);
+        let tall2 = Number(document.getElementById("tall2").value);
+        let res = document.getElementById("resultat");
+        if (isNaN(tall1) || isNaN(tall2)){res.innerHTML = "Skriv inn gyldig tall"}
+            res.innerHTML = tall1 - tall2;
+    }
+    function beregngange() {
+        let tall1 = Number(document.getElementById("tall1").value);
+        let tall2 = Number(document.getElementById("tall2").value);
+        let res = document.getElementById("resultat");
+        if (isNaN(tall1) || isNaN(tall2)){res.innerHTML = "Skriv inn gyldig tall"}
+        res.innerHTML = tall1 * tall2;
+
+    }
+    function beregndele() {
+        let tall1 = Number(document.getElementById("tall1").value);
+        let tall2 = Number(document.getElementById("tall2").value);
+        let res = document.getElementById("resultat");
+        if (isNaN(tall1) || isNaN(tall2)){res.innerHTML = "Skriv inn gyldig tall"}
+        res.innerHTML = tall1 / tall2;
+
+    }
+
+
+</script>
+</head>
+<body>
+<label for="tall1">Tall 1:</label>
+    <input type="text" id="tall1"> <br><br>
+
+<button onclick="beregnpluss()">+</button>
+<button onclick="beregnminus()">-</button>
+<button onclick="beregngange()">*</button>
+<button onclick="beregndele()">/</button><br><br>
+
+<label for="tall2">Tall 2:</label>
+    <input type="text" id="tall2">
+<br><br>
+<div id="resultat"></div>
+
+</body>
+</html>

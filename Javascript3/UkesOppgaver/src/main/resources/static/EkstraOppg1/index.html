@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script type="application/javascript">
+        function leggTilGjoremaal() {
+            let gjoremaal = document.getElementById("gjoremaal").value;
+
+            document.getElementById("liste").insertAdjacentHTML("beforeend", "<input type='checkbox'>"+gjoremaal+"<br>");
+        }
+    </script>
+</head>
+<body>
+<label for="gjoremaal">Legg til gjøremål:</label> <br>
+<input type="text" onchange="leggTilGjoremaal()" id="gjoremaal"><br><br>
+<div id="liste">
+    <h2>Gjøremål:</h2>
+</div>
+</body>
+</html>

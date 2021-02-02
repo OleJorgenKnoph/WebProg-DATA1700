@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Oppg2</title>
+
+<script type="application/javascript">
+    function beregn() {
+        let celsius = document.getElementById("celsius");
+        let farenheit = document.getElementById("farenheit");
+
+        let c = Number(celsius.value);
+        let f = Number(farenheit.value);
+
+        if (isNaN(c)||isNaN(f)){
+            alert("skriv inn gyldige verdier");
+        }
+            else {
+                if (celsius.value.length === 0) {
+                    let grader = (5/9)*(f-32);
+
+                    celsius.value = grader.toFixed(2) + " celsius";
+                }
+                    if (farenheit.value.length === 0) {
+                        let grader = (5 / 9) * c + 32;
+
+                        farenheit.value = grader.toFixed(2) + " farenheit";
+                    }
+            }
+    }
+</script>
+</head>
+<body>
+<label for="celsius">Celsius grader:</label>
+    <input type="text" id="celsius" onchange="beregn()"> <br>
+<label for="farenheit">Farenheit grader:</label>
+    <input type="text" id="farenheit" onchange="beregn()"> <br>
+
+</body>
+</html>

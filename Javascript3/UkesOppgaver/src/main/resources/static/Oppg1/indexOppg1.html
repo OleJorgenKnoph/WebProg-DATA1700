@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ukesoppgaver</title>
+
+    <script type="application/javascript">
+
+        function visNavn() {
+            const navn = document.getElementById("navn").value;
+            const alderS = document.getElementById("alder").value;
+
+            const alder = Number(alderS);
+            if (alder < 0 || isNaN(alder)){
+                alert("Ugyldig alder");
+            }
+                else {
+                    document.getElementById("ut").innerHTML = navn + " er " + alder + " år.";
+                }
+        }
+    </script>
+</head>
+<body>
+    <label for="navn">Navn: </label> <input type="text" id="navn"> <br/>
+    <label for="alder">Alder: </label> <input type="text" id="alder"> <br/>
+    <button id="visNavn" onclick="visNavn()">Vis Navn</button>
+    <div id="ut"></div>
+</body>
+</html>
