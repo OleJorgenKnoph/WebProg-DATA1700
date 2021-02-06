@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Oppgave3</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+    <script type="application/javascript">
+        function pluss() {
+            if (isNaN($("#tall1").val()) || isNaN($("#tall2").val())){
+                $("#res").text("Skriv inn gyldige tall")
+            }
+                else {
+                    let sum = parseInt($("#tall1").val()) + parseInt($("#tall2").val());
+                        $("#res").text(sum);
+                }
+        }
+            function minus(){
+                if (isNaN($("#tall1").val()) || isNaN($("#tall2").val())){
+                    $("#res").text("Skriv inn gyldige tall")
+                }
+                else {
+                    let sum = parseInt($("#tall1").val()) - parseInt($("#tall2").val());
+                    $("#res").text(sum);
+                }
+            }
+                function gange(){
+                    if (isNaN($("#tall1").val()) || isNaN($("#tall2").val())){
+                        $("#res").text("Skriv inn gyldige tall")
+                    }
+                    else {
+                        let sum = parseInt($("#tall1").val()) * parseInt($("#tall2").val());
+                        $("#res").text(sum);
+                    }
+                }
+                    function dele(){
+                        if (isNaN($("#tall1").val()) || isNaN($("#tall2").val())){
+                            $("#res").text("Skriv inn gyldige tall")
+                        }
+                        else {
+                            let sum = parseInt($("#tall1").val()) / parseInt($("#tall2").val());
+                            $("#res").text(sum);
+                        }
+                    }
+    </script>
+</head>
+<body>
+<input type="number" id="tall1"><br>
+<input type="number" id="tall2"><br><br>
+    <button id="pluss" onclick="pluss()">+</button>
+    <button id="minus" onclick="minus()">-</button>
+    <button id="gange" onclick="gange()">*</button>
+    <button id="dele" onclick="dele()">/</button><br><br>
+<div id="res"></div>
+</body>
+</html>

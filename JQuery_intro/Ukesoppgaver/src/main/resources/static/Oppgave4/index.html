@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Oppgave4</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+    <script type="application/javascript">
+        $(function (){
+            let personReg = [];
+
+            $("#regKnapp").click(function (){
+            let person = {
+                Navn: $("#navn").val(),
+                Adresse: $("#adr").val(),
+                Tlf: $("#tlf").val()
+            }
+            personReg.push(person);
+            console.log(personReg);
+
+        });
+
+
+            $("#visReg").click(function (){
+                let ut = "<table><tr><th>"+"Navn"+"</th><th>"+"Adresse"+"</th><th>"+"Tlf"+"</th></tr>";
+
+                let personUt = ""
+                for (let i = 0; i < personReg.length; ++i) {
+                    personUt += "<tr>";
+                            personUt += "<td>" + personReg[i].Navn + "</td>";
+                            personUt +=  "<td>" + personReg[i].Adresse + "</td>";
+                            personUt += "<td>" + personReg[i].Tlf + "</td></tr>";
+                }
+                $("#ut").html(ut + personUt);
+            })
+    })
+    </script>
+</head>
+<body>
+<label for="navn">Navn:</label>
+    <input type="text" id="navn"><br>
+<label for="adr">Adresse:</label>
+    <input type="text" id="adr"><br>
+<label for="tlf">Tlfnummer:</label>
+    <input type="text" id="tlf"><br>
+<button id="regKnapp">Registrer</button><br><br>
+<button id="visReg">Vis personregister</button><br>
+<div id="ut"></div>
+</body>
+</html>

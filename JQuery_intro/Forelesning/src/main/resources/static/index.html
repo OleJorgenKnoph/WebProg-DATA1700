@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JQuery Gjennomgang</title>
+
+    <script src="//code.jquery.com/jquery-3.4.1.js"></script>
+
+    <script type="application/javascript">
+        $(function (){
+           console.log("Hei");
+
+           $("#div1").click(function (){
+               $("#div1").css("background-color", "blue");
+           });
+
+
+           $("#knapp1").click(function (){
+             //let temp = $("#inn").val();
+             let temp = $("input[name=inn]").val();
+
+             $("#ut").val(temp);
+           });
+
+
+           function forsvinn(){
+               $("#knapp2").hide();
+           }
+           $("#knapp2").click(function (){
+              forsvinn();
+           });
+           $("#knapp3").click(function (){
+               $("#knapp2").show();
+           });
+
+
+           $("#knapp4").click(function (){
+                $("#boks").animate({
+                   left: '100px',
+                    opacity: '.5',
+                    height: '150px',
+                    width: '150px'
+                });
+           });
+            $("#knapp5").click(function (){
+                $("#boks").animate({
+                    left: '0',
+                    opacity: '1',
+                    height: '80px',
+                    width: '80px'
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+
+<form action="javascript:void(0);" name="skjema">
+    <input type="text" name="inn" id="inn"/> <br>
+    <input type="text" name="ut" id="ut" /> <br>
+        <button id="knapp1">Trykk meg</button>
+</form>
+
+    <div id="div1">Trykk</div>
+
+    <button id="knapp2">Forsvinn</button>
+    <button id="knapp3">Tilbake</button>
+<br><br>
+    <button id="knapp4">Animer</button><button id="knapp5">Animer tilbake</button> <br>
+<br>
+        <div id="boks" style="width: 80px; height: 80px; background-color: indigo; position: absolute;">Hei</div>
+</body>
+</html>

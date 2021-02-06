@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Oppgave2</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+    <script type="application/javascript">
+        $(function (){
+            $("#cel").change(function (){
+                $("#far").val((9/5) * $("#cel").val() + 32);
+            });
+
+            $("#far").change(function (){
+                $("#cel").val((5/9)*($("#far").val()-32));
+            });
+        });
+
+    </script>
+</head>
+<body>
+<h2>Konverter grader</h2>
+<label for="cel">Celsius:</label>
+    <input type="number" id="cel"><br>
+<label for="far">Farenheit:</label>
+    <input type="number" id="far"><br>
+</body>
+</html>
