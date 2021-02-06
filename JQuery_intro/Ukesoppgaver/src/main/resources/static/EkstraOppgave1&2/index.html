@@ -8,30 +8,26 @@
     <script type="application/javascript">
         $(function (){
             let id = 0;
-            let ut = "";
            $("#gjoreMaal").change(function (){
                id++
                let gjoremaal = $("#gjoreMaal").val();
-                ut = "<input type='checkbox' onclick='ferdig("+id+")' id='" + id + "' value='"+gjoremaal+"'>" + gjoremaal;
-               $("#ferdigListe").append(ut + "<br>");
+               $("#ferdigListe").append("<input type='checkbox' onclick='ferdig("+id+")' id='" + id + "' value='"+gjoremaal+"'>" + gjoremaal + "<br>");
            })
-
-
-
-
 
         });
         function ferdig(id) {
-            let element = $("#"+id);
-            $("#uferdigListe").append(/*element*/  element.val() + "<br>");
+            let element = $("#"+id).val();
+            $("#uferdigListe").append(("<input checked type='checkbox' onclick='ferdig("+id*-1+")' id='" + id*-1 + "' value='"+element+"'>" + element + "<br>"));
         }
-
+/*
+MANGLER AT ELEMENTET FORSVINNER FRA TIDLIGERE LISTE. OG  KAN LEGGES TILBAKE
+ */
         </script>
 </head>
 <body>
 <label for="gjoreMaal">Gjøremål:</label>
     <input type="text" id="gjoreMaal" onfocus="value=''"><br><br>
-<div id="ferdigListe"></div>
-<div id="uferdigListe"></div>
+<div id="ferdigListe"><h3>Uferdig</h3></div>
+<div id="uferdigListe"><h3>Ferdig</h3></div>
 </body>
 </html>
