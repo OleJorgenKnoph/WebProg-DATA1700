@@ -11,23 +11,28 @@
            $("#gjoreMaal").change(function (){
                id++
                let gjoremaal = $("#gjoreMaal").val();
-               $("#ferdigListe").append("<input type='checkbox' onclick='ferdig("+id+")' id='" + id + "' value='"+gjoremaal+"'>" + gjoremaal + "<br>");
+               $("#ferdigListe").append("<label id='label"+id+"'><input type='checkbox' onclick='ferdig("+id+")' id='" + id + "' value='"+gjoremaal+"'>" + gjoremaal + "<br></label>");
            })
-
         });
         function ferdig(id) {
             let element = $("#"+id).val();
-            $("#uferdigListe").append(("<input checked type='checkbox' onclick='ferdig("+id*-1+")' id='" + id*-1 + "' value='"+element+"'>" + element + "<br>"));
-        }
-/*
-MANGLER AT ELEMENTET FORSVINNER FRA TIDLIGERE LISTE. OG  KAN LEGGES TILBAKE
- */
+                if (id>0) {
+                    $("#uferdigListe").append("<label id='label"+id*-1+"'><input type='checkbox' onclick='ferdig(" + id * -1 + ")' id='" + id * -1 + "' value='" + element + "'>" + element.css({'textDecoration': 'line-through'}) + "<br></label>");
+                        $("#label"+id).remove();
+                    }
+                    else {
+                            $("#ferdigListe").append("<label id='label"+id*-1+"'><input type='checkbox' onclick='ferdig(" + id * -1 + ")' id='" + id * -1 + "' value='" + element + "'>" + element + "<br></label>");
+                                $("#label"+id).remove();
+                        }
+            }
         </script>
 </head>
 <body>
 <label for="gjoreMaal">Gjøremål:</label>
     <input type="text" id="gjoreMaal" onfocus="value=''"><br><br>
-<div id="ferdigListe"><h3>Uferdig</h3></div>
-<div id="uferdigListe"><h3>Ferdig</h3></div>
+<h3>Uferdig</h3>
+    <div id="ferdigListe"></div>
+<h3>Ferdig</h3>
+    <div id="uferdigListe"></div>
 </body>
 </html>
