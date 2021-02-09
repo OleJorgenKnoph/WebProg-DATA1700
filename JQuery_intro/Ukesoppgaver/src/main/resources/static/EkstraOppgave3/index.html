@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EkstraOppg 3</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+    <script>
+
+        const oppgaver = []
+
+        const oppgave1 = {
+            sporsmol: "Når er frist for oblig 1?",
+            alternativer: ['1. Februar', '6. Februar', '12. Februar'],
+            riktigIndex: 2
+        }
+
+        const oppgave2 = {
+            sporsmol: "Hvor mange obliger er det i dette faget?",
+            alternativer: ['3', '5', 'ingen', '2'],
+            riktigIndex: 0
+        }
+
+        const oppgave3 = {
+            sporsmol: "Hva står API for?",
+            alternativer: ['App Program Instruction', 'Application Programming Interface', 'Det er ikke en forkortelse'],
+            riktigIndex: 1
+        }
+
+        oppgaver.push(oppgave1)
+        oppgaver.push(oppgave2)
+        oppgaver.push(oppgave3)
+
+
+        function skrivUtOppgaver() {
+            const liste = $('#liste')
+                let ut = " ";
+                    for (let i = 0; i < oppgaver.length; ++i){
+                        ut += "<br><br><li>" + oppgaver[i].sporsmol + "</li><br>";
+                            for (let j = 0; j < oppgaver[i].alternativer.length; ++j) {
+                        ut += oppgaver[i].alternativer[j] + "<input type='radio' name='"+i+"' id='oppgave"+(i+1)+"' value='"+oppgaver[i].alternativer[j]+"'><br><br>";
+                            }
+                    }
+                ut += "<button onclick='sjekkSvar()'>Sjekk svar</button>"
+            liste.html(ut);
+        }
+        
+       function sjekkSvar() {
+           let poeng = 0;
+            for (let i = 0; i<oppgaver.length; ++i){
+                    let svar = $("#oppgave"+(i+1)+":checked").val();
+                        if (svar === oppgaver[i].alternativer[oppgaver[i].riktigIndex]){
+                        poeng++
+                        }
+                }
+            alert("Du fikk " + poeng + " av 3 riktige")
+            }
+
+    </script>
+</head>
+<body>
+<button onclick="skrivUtOppgaver()">Ta test!</button>
+<ul id="liste"></ul>
+</body>
+</html>

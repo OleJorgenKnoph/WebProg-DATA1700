@@ -17,7 +17,7 @@
         function ferdig(id) {
             let element = $("#"+id).val();
                 if (id>0) {
-                    $("#uferdigListe").append("<label id='label"+id*-1+"'><input type='checkbox' onclick='ferdig(" + id * -1 + ")' id='" + id * -1 + "' value='" + element + "'>" + element.css({'textDecoration': 'line-through'}) + "<br></label>");
+                    $("#uferdigListe").append("<label id='label"+id*-1+"'><input type='checkbox' onclick='ferdig(" + id * -1 + ")' id='" + id * -1 + "' value='" + element + "'>" + element.css('textDecoration','line-through') + "<br></label>");
                         $("#label"+id).remove();
                     }
                     else {
