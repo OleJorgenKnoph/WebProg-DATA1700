@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+</head>
+<body>
+
+<h2>Enkelt webprogram:</h2>
+Skriv inn ditt navn: <input type="text" id="navn" />
+<button onclick="hallo()">Trykk her</button>
+<div id="infoDiv"></div>
+
+<script type="application/javascript">
+    function hallo(){
+        const url = "/?navn="+$("#navn").val();
+
+            $.get(url, function (data){
+                $("#infoDiv").html(data);
+            });
+    }
+</script>
+</body>
+</html>
