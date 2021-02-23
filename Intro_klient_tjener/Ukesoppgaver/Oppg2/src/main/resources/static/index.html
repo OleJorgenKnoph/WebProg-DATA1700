@@ -30,7 +30,14 @@
 </head>
 <body>
 <div>
-    <label for="inValuta">Valuta:</label><input id="inValuta" type="text">
+    <label for="inValuta">Valuta:</label>
+    <select id="inValuta">
+        <optgroup label="Europeiske"></optgroup>
+            <option value="EUR">EUR</option>
+            <option value="PKR">PKR</option>
+        <optgroup label="Nord- og sør-Amerikanske"></optgroup>
+            <option value="USD">USD</option>
+    </select>
 </div>
 <div>
     <label for="inVerdi">Value:</label><input id="inVerdi" type="text">
