@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Oppgave 2</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script type="application/javascript">
+        function calculate(){
+            $("#output").text("");
+            const valuta = $("#inValuta").val();
+            const value = $("#inVerdi").val();
+            let obj = {
+                name : valuta,
+                value : value,
+            }
+
+            if (valuta === "" || value === ""){
+                $("#output").text("You need to fill both fields.");
+            } else {
+                $.get("/calc", obj, function (valueNOK){
+                    if (isNaN(valueNOK) || valueNOK === ""){
+                        $("#output").text("The data you entered is invalid");
+                    } else {
+                        $("#output").text("Your value in NOK is " + valueNOK);
+                    }
+                })
+            }
+        }
+    </script>
+</head>
+<body>
+<div>
+    <label for="inValuta">Valuta:</label><input id="inValuta" type="text">
+</div>
+<div>
+    <label for="inVerdi">Value:</label><input id="inVerdi" type="text">
+</div>
+<button onclick="calculate()">Calculate in NOK!</button>
+<div id="output"></div>
+</body>
+</html>

@@ -3,11 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <title>GjennomsnittsTemp</title>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+    <script type="application/javascript">
+        function snittTemp() {
+            const maaned = $("#maaned").val().toUpperCase();
+            const url = "/snittTemp?maaned=" + maaned;
+            $.get(url, function (temp) {
+                $("#ut").html("Snittemp for " + maaned.toLowerCase() + " var " + temp + " grader");
+            });
+        }
+    </script>
 </head>
 <body>
 <h3>Finn gjennomsnittstemperatur</h3>
 
 <label for="maaned">Velg måned:</label>
-    <input type="text" id="maaned">
+<input type="text" id="maaned"><br>
+
+<button onclick="snittTemp()">Finn snitt temp</button>
+<br>
+<div id="ut"></div>
+
 </body>
 </html>
