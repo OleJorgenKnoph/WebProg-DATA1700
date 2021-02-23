@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kalkulator</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+    <script type="application/javascript">
+
+        function beregn() {
+            const tall1 = $("#tall1").val();
+            const tall2 = $("#tall2").val();
+            const regneart = $("input[name='knapp']:checked").val();
+
+            let obj = {
+                tall1: tall1,
+                tall2: tall2,
+                regneart: regneart
+            }
+
+            if (tall1===""||tall2===""){
+                $("#res").html("Fyll inn begge felter")
+            }
+                else if (isNaN(tall1) || isNaN(tall2)) {
+                    $("#res").html("Skriv inn gyldige tall")
+                }
+                    else {
+                        $.get("/", obj, function (data) {
+                            $("#res").html(tall1 + " " + regneart + " " + tall2 + " = " + data);
+                        });
+                    }
+        }
+    </script>
+</head>
+<body>
+<h3>Kalkulator</h3>
+
+<input type="number" id="tall1"><br>
+    <input type="radio" name="knapp" value="pluss">pluss
+    <input type="radio" name="knapp" value="minus">minus
+    <input type="radio" name="knapp" value="gange">gange
+    <input type="radio" name="knapp" value="dele">dele
+<br>
+<input type="number" id="tall2"><br><br>
+<button onclick="beregn()">Beregn</button>
+<br><br>
+<div id="res"></div>
+</body>
+</html>
