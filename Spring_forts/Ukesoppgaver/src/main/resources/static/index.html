@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Motorvognregister</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+    <script type="application/javascript">
+            function reg() {
+                let bilObj = {
+                    persNr: $("#persNr").val(),
+                    navn: $("#navn").val(),
+                    adresse: $("#adresse").val(),
+                    kjennetegn: $("#kjennetegn").val(),
+                    bilmerke: $("#bilmerke").val(),
+                    type: $("#type").val()
+                };
+
+
+            $.post("/regBiler", bilObj, function (data){
+                let ut ="<u>Alle biler:</u><br><br><table><tr><th>PersonNr &ensp;</th><th>Navn&ensp;</th><th>Adresse&ensp;</th><th>Kjennetegn&ensp;</th><th>Merke&ensp;</th><th>Type&ensp;</th></tr>";
+                    for (let i = 0; i < data.length; ++i){
+                            ut += "<tr><td>" + data[i].persNr + "&ensp;</td>";
+                            ut += "<td>" + data[i].navn + "&ensp;</td>";
+                            ut += "<td>" + data[i].adresse + "&ensp;</td>";
+                            ut += "<td>" + data[i].kjennetegn + "&ensp;</td>";
+                            ut += "<td>" + data[i].bilmerke + "&ensp;</td>";
+                            ut += "<td>" + data[i].type + "&ensp;</td></tr>";
+                    }
+                    $("#resultat").html(ut);
+            })
+
+            //Tømme feltene
+$("#persNr").val("");
+$("#navn").val("");
+$("#adresse").val("");
+$("#kjennetegn").val("");
+$("#bilmerke").val("");
+$("#type").val("");
+            }
+
+            function slett() {
+                $.get("/slett", function () {
+                    $("#resultat").html("");
+                })
+
+            }
+    </script>
+</head>
+<body>
+<h2>Motorvognregister</h2>
+<label for="persNr">Eiers personnummer:</label>
+    <input type="text" id="persNr">
+
+<label for="navn">Eiers navn:</label>
+    <input type="text" id="navn">
+
+<label for="adresse">Eiers adresse:</label>
+    <input type="text" id="adresse"><br><br>
+
+<label for="kjennetegn">Kjennetegn:</label>
+    <input type="text" id="kjennetegn">
+
+<label for="bilmerke">Bilmerke:</label>
+    <input type="text" id="bilmerke">
+
+<label for="type">Biltype:</label>
+    <input type="text" id="type"><br><br>
+
+<button onclick="reg()">Registrer</button><br><br>
+
+
+<div id="resultat"></div>
+
+<button onclick="slett()">Slett alle</button><br><br>
+
+</body>
+</html>
