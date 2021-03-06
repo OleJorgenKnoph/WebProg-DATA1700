@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>oslomet</groupId>
-    <artifactId>oblig2</artifactId>
+    <artifactId>webprog</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>oblig2</name>
+    <name>webprog</name>
     <description>Demo project for Spring Boot</description>
     <properties>
         <java.version>11</java.version>

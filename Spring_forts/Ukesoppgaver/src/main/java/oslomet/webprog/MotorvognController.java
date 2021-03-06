@@ -10,10 +10,9 @@ public class MotorvognController {
 
     ArrayList<Motorvogn> biler = new ArrayList<>();
 
-    @PostMapping("/regBiler")
+    @PostMapping("/regBil")
         public ArrayList<Motorvogn> enBil(Motorvogn enBil){
             biler.add(enBil);
-
                 return biler;
     }
 
