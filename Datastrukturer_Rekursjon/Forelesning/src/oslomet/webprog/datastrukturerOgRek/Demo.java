@@ -1,55 +1,54 @@
 package oslomet.webprog.datastrukturerOgRek;
 
+
 import java.util.*;
 
 public class Demo {
-//REKURSJON
-    public static void skrivHei(int antall){
-        if (antall > 0){
-            System.out.println("Hei!");
-                skrivHei(antall-1);
-        }
-        System.out.println("annet");
-    }
+
     public static void main(String[] args) {
-        skrivHei(5);
+        System.out.println("Live-koding - datastrukturer");
 
-
-        /*    int[] array = {1, 3, 23, 43, 77};
+        // deklarering og initialisering
+        int[] array = {1,34,5,42,54,23,8,66,99,87};
 
         List<Integer> enkelListe = new ArrayList<>();
-        List<Integer> sammekjedetListe = new LinkedList<>();
+        List<Integer> enkelListe2 = new ArrayList<>(Arrays.asList(1, 34));
+        List<Integer> sammenkjedetListe = new LinkedList<>();
         List<Integer> stakk = new Stack<>();
 
-            enkelListe.add(1);
-            sammekjedetListe.add(2);
-                /*stakk.add(2);
-                stakk.add(3);
-                stakk.add(8);
-                stakk.add(1);
-                stakk.add(13);
-            stakk.addAll(Arrays.asList(3,3,3,3,3));
+        // sett inn
+        enkelListe.add(array[0]);
+        sammenkjedetListe.add(array[0]);
+        stakk.add(array[0]);
 
+        // skriv ut
+        System.out.println(enkelListe.toString());
+        System.out.println(enkelListe2.toString());
+        System.out.println(sammenkjedetListe.toString());
+        System.out.println(stakk.toString());
 
+        // finn
+        System.out.println(enkelListe.get(0));
+        System.out.println(sammenkjedetListe.get(0));
+        System.out.println(stakk.get(0));
 
-        System.out.println(enkelListe);
-        System.out.println(sammekjedetListe);
-        System.out.println(stakk);
-
-
+        // slett
         enkelListe.remove(0);
-        sammekjedetListe.remove(0);
+        sammenkjedetListe.remove(0);
         stakk.remove(0);
 
-        System.out.println(enkelListe);
-        System.out.println(sammekjedetListe);
-
+        // størrelse/lengde
         System.out.println(enkelListe.size());
-        System.out.println(sammekjedetListe.size());
+        System.out.println(sammenkjedetListe.size());
         System.out.println(stakk.size());
 
-        //CAST
-            Stack<Integer> stakk2 */
-
+        // funksjoner for stakk
+        Stack<Integer> stakk2 = (Stack<Integer>) stakk;
+        stakk2.push(1);
+        stakk2.push(2);
+        stakk2.push(3);
+        System.out.println(stakk2.size());
+        System.out.println(stakk2.pop());
+        System.out.println(stakk2.size());
     }
 }
