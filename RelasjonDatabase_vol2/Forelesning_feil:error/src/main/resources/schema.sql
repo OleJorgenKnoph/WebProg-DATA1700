@@ -1,0 +1,17 @@
+CREATE TABLE kunde(
+    id INTEGER AUTO_INCREMENT NOT NULL,
+    personnr CHAR(11) NOT NULL,
+    navn VARCHAR(255) NOT NULL,
+    adresse VARCHAR(255) NOT NULL,
+    kjennetegn VARCHAR(7) NOT NULL,
+    merke VARCHAR(255) NOT NULL,
+    type VARCHAR(255) NOT NULL,
+        PRIMARY KEY(id)
+);
+
+CREATE TABLE bil(
+    bilID INTEGER AUTO_INCREMENT NOT NULL,
+    merke VARCHAR(255) NOT NULL,
+    type VARCHAR(255) NOT NULL,
+        PRIMARY KEY(bilID)
+);
