@@ -19,7 +19,6 @@ function login(){
         }
         else {
             $("#feilPassord").html("Feil i brukernavn eller passord");
-            $("#passord").val("");
         }
     })
         .fail(function (){
@@ -37,6 +36,6 @@ function sjekkInnlogging(){
     $.get("/sjekkInnlogget", function (innloggetStatus){
     if (innloggetStatus) {
         leggTilInnloggetObjekter();
-        }
+    }
     })
 }

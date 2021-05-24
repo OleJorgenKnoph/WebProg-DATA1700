@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prøveksamen 2</title>
+    <!--JQUERY-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+<div id="feilMelding" style="font-size: large; color: red"></div>
+    <table>
+        <tr>
+            <td>BrukerNavn</td>
+            <td><input type="text" id="brukernavn" onchange="validerBrukernavn()"></td>
+        </tr>
+        <tr>
+            <td>Passord</td>
+            <td><input type="text" id="passord" onchange="validerPassord()"></td>
+        </tr>
+        <tr>
+            <td><button id="registrer" onclick="reg()">Registrer</button></td>
+        </tr>
+    </table>
+
+<div id="resultat"></div>
+
+
+<script src="index.js"></script>
+</body>
+</html>

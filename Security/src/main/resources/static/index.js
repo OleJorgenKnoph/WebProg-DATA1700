@@ -23,7 +23,6 @@ function formaterKunde(kunde){
         "<th scope='col'>RegNummer</th>" +
         "<th scope='col'>Merke</th>" +
         "<th scope='col'>Type</th>" +
-        "<th scope='col'>Passord</th>" +
         "<th scope='col'></th>" +
         "<th scope='col'></th>" +
         "</tr>" +
@@ -38,7 +37,6 @@ function formaterKunde(kunde){
             "<td>"+ enKunde.regNr +"</td>" +
             "<td>"+ enKunde.merke +"</td>" +
             "<td>"+ enKunde.type +"</td>" +
-            "<td>"+ enKunde.passord +"</td>" +
             "<td><a href='endreKunde.html?id="+ enKunde.id +"' class='btn btn-light btn-sm'>Endre</a></td>" +
             "<td><button type='button' class='btn btn-secondary btn-sm' onclick='slettEnKunde("+ enKunde.id +")'>Slett</button> </td>" +
             "</tr>";

@@ -1,12 +1,12 @@
 package oslomet.webprog;
 
-import org.mindrot.jbcrypt.BCrypt;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
+
 import java.util.List;
 
 @Repository
@@ -15,15 +15,7 @@ public class BilRepository {
 
     @Autowired
     public JdbcTemplate db;
-    private final Logger logger = LoggerFactory.getLogger(BilRepository.class);
-
-    private String krypterPassord(String passord){
-        return BCrypt.hashpw(passord, BCrypt.gensalt());
-    }
-
-    private boolean sjekkPassord(String passord, String hashPassord){
-        return BCrypt.checkpw(passord, hashPassord);
-    }
+    private Logger logger = LoggerFactory.getLogger(BilRepository.class);
 
     public List<Bil> hentAlleBiler(){
         String sql = "SELECT * FROM AlleBiler";
@@ -39,10 +31,9 @@ public class BilRepository {
 
     public boolean lagreKunde(Kunde kunde){
         String sql = "INSERT INTO AlleKunder(persNr, navn, adr, regNr, merke, type, passord) VALUES (?,?,?,?,?,?,?)";
-        String hash = krypterPassord(kunde.getPassord());
 
         try {
-            db.update(sql, kunde.getPersNr(), kunde.getNavn(), kunde.getAdr(), kunde.getRegNr(), kunde.getMerke(), kunde.getType(), hash);
+            db.update(sql, kunde.getPersNr(), kunde.getNavn(), kunde.getAdr(), kunde.getRegNr(), kunde.getMerke(), kunde.getType(), kunde.getPassord());
                 return true;
         } catch (Exception e){
                 logger.error("Feil i lagring av kunde: " + e);
@@ -119,14 +110,17 @@ public class BilRepository {
 
         }
 
-        public boolean sjekkNavnOgPassord(Kunde kunde) {
-            String sql = "SELECT * FROM AlleKunder WHERE navn = ?";
+        public boolean sjekkNavnOgPassord(Kunde kunde){
+            Object[] para = new Object[]{kunde.getNavn(), kunde.getPassord()};
+            String sql = "SELECT COUNT(*) FROM AlleKunder WHERE navn=? AND passord=?";
 
             try {
-                Kunde dbKunde = db.queryForObject(sql, BeanPropertyRowMapper.newInstance(Kunde.class), kunde.getNavn());
-                assert dbKunde != null; //Throws exception if dbKunde is null
+                int antall = db.queryForObject(sql, para, Integer.class);
 
-                return sjekkPassord(kunde.getPassord(), dbKunde.getPassord());
+                if (antall > 0){
+                    return true;
+                }
+                return false;
             } catch (Exception e){
                 logger.error("Feil i sjekkNavnOgPassord: " + e);
                 return false;

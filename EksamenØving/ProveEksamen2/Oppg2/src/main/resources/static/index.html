@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prøveksamen 2</title>
+    <!--JQUERY-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+<div id="feilMelding" style="font-size: large; color: red"></div>
+    <table>
+        <tr>
+            <td>BrukerNavn</td>
+            <td><input type="text" id="brukernavn"></td>
+        </tr>
+        <tr>
+            <td>Passord</td>
+            <td><input type="text" id="passord" ></td>
+        </tr>
+        <tr>
+            <td><button id="registrer" onclick="sjekkOmFinnes()">Sjekk om brukernavn og passord finnes</button></td>
+        </tr>
+    </table>
+
+<div id="resultat"></div>
+<br><br><br>
+<div>DummyData:<br> BrukerNavn: Test1 <br> Passord: Test1Passord</div>
+
+
+<script src="index.js"></script>
+</body>
+</html>

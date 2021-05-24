@@ -1,0 +1,1 @@
+INSERT INTO Bruker(Brukernavn, Passord) VALUES ('Test1', 'Test1Passord');
