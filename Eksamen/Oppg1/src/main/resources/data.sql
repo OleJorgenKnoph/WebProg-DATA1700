@@ -1,0 +1,1 @@
+INSERT INTO Poststed(Postnr, Poststed) VALUES ('0366', 'Oslo');

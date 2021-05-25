@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Eksamen</title>
+    <!--JQUERY-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+<h3>Registrere pakker</h3>
+<table>
+    <tr>
+        <td>Fornavn</td>
+        <td><input type="text" id="fornavn" onchange="validerFornavn()"></td>
+    </tr>
+    <tr>
+        <td>Etternavn</td>
+        <td><input type="text" id="etternavn" onchange="validerEtternavn()"></td>
+    </tr>
+    <tr>
+        <td>Adresse</td>
+        <td><input type="text" id="adresse"></td>
+    </tr>
+    <tr>
+        <td>Postnr</td>
+        <td><input type="text" id="postnr" <!--onchange="validerPostnr()"-->></td>
+    </tr>
+    <tr>
+        <td>TlfNr</td>
+        <td><input type="text" id="telefonnr"></td>
+    </tr>
+    <tr>
+        <td>E-Post</td>
+        <td><input type="text" id="epost"></td>
+    </tr>
+    <tr>
+        <td>Pakkevolum (dm^2)</td>
+        <td><input type="text" id="volum"></td>
+    </tr>
+    <tr>
+        <td>Vekt (kg)</td>
+        <td><input type="text" id="vekt"></td>
+    </tr>
+    <tr>
+        <td><input type="submit" id="registrer" value="Registrer" onclick="validerNavnOgPostnr()"></td>
+        <td><input type="submit" id="sjekkpost" value="Sjekk Postnr" onclick="sjekkPostnr()"></td>
+    </tr>
+</table>
+
+<div id="feilmeldinger"></div>
+
+<script src="index.js"></script>
+</body>
+</html>
